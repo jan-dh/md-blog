@@ -1,3 +1,3 @@
 # Readme 
-More info comming soon.
+More info coming soon.
 
