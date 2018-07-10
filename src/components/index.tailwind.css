@@ -1,0 +1,165 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/preflight";
+ */
+
+@tailwind preflight;
+/**
+  * This injects any component classes registered by plugins.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/components";
+  */
+
+@tailwind components;
+/**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  *
+  * Example:
+  *
+  * .btn { ... }
+  * .form-input { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "components/buttons";
+  * @import "components/forms";
+  */
+
+/**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  *
+  * If using `postcss-import`, use this import instead:
+  *
+  * @import "tailwindcss/utilities";
+  */
+
+body {
+  font-family: 'Quattrocento Sans', serif;
+}
+
+h1{
+  font-family: 'Oswald', sans-serif;
+}
+h2,h3,h4,h5{
+  margin:1rem 0;
+}
+p{
+  font-size:18px;
+  line-height:1.7;
+}
+a{
+  text-decoration: none;
+}
+
+/* Bio Pic */
+.bio-pic{
+  width:100px;
+}
+
+/* Content Block styling */
+.highlight,
+.content a{
+  color: inherit;
+  position: relative;
+  z-index: 1;
+}
+.highlight:before,
+.content a:before{
+  content: '';
+  transition: .15s ease-in;
+  position: absolute;
+  z-index: -1;
+  bottom: 0px;
+  height: 10px;
+  width: 100%;
+  background-color: #ffcf038c;
+  left: 4px;
+}
+
+.content a:hover:before{
+  bottom:1px;
+  left:0;
+}
+.content blockquote{
+  margin:2.5rem auto 2.5rem auto;
+  font-size:24px;
+  position: relative;
+  font-style:italic;
+  max-width:600px;
+  z-index:1;
+}
+.content blockquote:before, .content blockquote:after{
+  content:'';
+  position: absolute;
+  background-color:#ffcf038c;
+  width:12px;
+  height:40px;
+  transform:rotate(33deg);
+  top:-20px;
+  z-index:-1;
+}
+.content blockquote p{
+  margin:0;
+}
+.content blockquote:before{
+  left:-15px;
+}
+.content blockquote:after{
+  left:9px;
+}
+.content ul{
+  margin:1rem;
+  padding:0;
+  list-style-type:none;
+}
+.content li{
+  padding:0 0 .5rem 1rem; 
+  position: relative;
+  font-size:18px;
+  line-height: 1.7;
+}
+.content li:before{
+  content:'';
+  position: absolute;
+  left:0;
+  top:12px;
+  background-color:#ffcf03;
+  border-radius:50%;
+  width:5px;
+  height:5px;
+}
+.content p{
+  margin: 1rem 0;
+}
+
+.content p.intro{
+  margin-top: 0;
+}
+
+@tailwind utilities;
+/**
+  * Here you would add any custom utilities you need that don't come out of the
+  * box with Tailwind.
+  *
+  * Example :
+  *
+  * .bg-pattern-graph-paper { ... }
+  * .skew-45 { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "utilities/background-patterns";
+  * @import "utilities/skew-transforms";
+  */
