@@ -3,7 +3,7 @@ title: Responsive tables in Craft
 date: "2018-07-10T22:12:03.284Z"
 categories: ['craft','twig']
 featuredImage: "https://picsum.photos/768/474"
-intro: "Tables today are it’s still a powerful tool for displaying data in an nice and orderly fashion. In this post we’ll make a twig component for Craft CMS that makes working with responsive tables a breeze."
+intro: "Tables today are still a powerful tool for displaying data in a nice and orderly fashion. In this post we’ll make a twig component for Craft CMS that makes working with responsive tables a breeze."
 ---
 
 I saw a tweet from [Matt Smith](https://twitter.com/AllThingsSmitty/) passing by on responsive tables. Checking out the [pen](https://codepen.io/AllThingsSmitty/pen/MyqmdM) he made, I thought it was an excellent way to implement responsive tables, so I decided to make a small reusable component for my Craft sites.  Have a look at the pen to understand what’s going on: data-attributes are being used to provide content on the mobile version of the table.
