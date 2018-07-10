@@ -34,7 +34,7 @@ class BlogPostTemplate extends React.Component {
         <html lang="en" />
       </Helmet>
         <div className="content mx-auto max-w-md mt-8">
-          <h1 className="my-0 leading-loose text-4xl font-bold">{post.frontmatter.title}</h1>
+          <h1 className="my-0 lg:leading-loose text-4xl font-bold mb-2">{post.frontmatter.title}</h1>
           <span className="text-sm text-grey-dark mb-4 inline-block">Published on <time>{post.frontmatter.date}</time> - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} reading time</span>
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />

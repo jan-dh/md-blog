@@ -6,7 +6,7 @@ class Footer extends React.Component {
   }
   render(){
     return(
-      <div className="mt-16 bg-grey-light py-4 text-sm">
+      <div className="mt-16 bg-grey-light py-4 text-sm px-4">
         <div className="mx-auto max-w-sm">
           <span>© Copyright - {(new Date()).getFullYear()}</span>
         </div>

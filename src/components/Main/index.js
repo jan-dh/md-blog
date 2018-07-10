@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet'
 
 const Main = ({ children }) => (
-  <main role="main" className="mx-auto">
+  <main role="main" className="mx-auto px-4">
     {children}
   </main>
 );
