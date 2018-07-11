@@ -53,7 +53,7 @@ h1{
   font-family: 'Oswald', sans-serif;
 }
 h2,h3,h4,h5{
-  margin:1rem 0;
+  margin:1.5rem 0 1rem;
 }
 p{
   font-size:18px;
@@ -125,7 +125,7 @@ a{
   list-style-type:none;
 }
 .content li{
-  padding:0 0 .5rem 1rem; 
+  padding:0 0 .5rem 1rem;
   position: relative;
   font-size:18px;
   line-height: 1.7;

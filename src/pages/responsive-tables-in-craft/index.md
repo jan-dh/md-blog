@@ -9,7 +9,7 @@ intro: "Tables today are still a powerful tool for displaying data in a nice and
 I saw a tweet from [Matt Smith](https://twitter.com/AllThingsSmitty/) passing by on responsive tables. Checking out the [pen](https://codepen.io/AllThingsSmitty/pen/MyqmdM) he made, I thought it was an excellent way to implement responsive tables, so I decided to make a small reusable component for my Craft sites.  Have a look at the pen to understand what’s going on: data-attributes are being used to provide content on the mobile version of the table.
 
 ## Creating the table
-Time to make our own. First we need to make a table field in Craft. We’ll make a table with 6 columns. Leave the column heading blank and set the handle for each column with a `col` + index. 
+Time to make our own. First we need to make a table field in Craft. We’ll make a table with 6 columns. Leave the column heading blank and set the handle for each column with a `col` + index.
 
 ![Creating a table field](./create-table.png)
 
@@ -36,7 +36,7 @@ Make a new twig file in your templates folder. This is the actual component you'
 
 Next step is to create the actual table. We use the first row to create the table head.
 
-```twig 
+```twig
 <table class="responsive-table">
 {% for row in entry.tableField %}
   {% if loop.index == 1%}
@@ -106,7 +106,7 @@ In the table head we check if there's a value in the first row (meaning the tabl
 
 ```twig{4}
 {% else %}
-  <tr>	
+  <tr>
   {% for i in 0..(tableSize - 1) %}
     {% if width > i %}
       {% set colName = "col" ~ (i + 1) %}
@@ -122,7 +122,7 @@ If there's an empty column, we won't render that column. Our table size is now d
 
 ## Styling
 
-All we need now is a little styling. Add the following snippet of `.scss` to your code. 
+All we need now is a little styling. Add the following snippet of `.scss` to your code.
 
 ```scss
 /* Responsive table */
@@ -161,7 +161,6 @@ table.responsive-table {
     }
     thead{
       border:none;
-      clip:rect(0 0 0 0);
       height:1px;
       margin:-1px;
       overflow:hidden;
@@ -200,7 +199,7 @@ table.responsive-table {
 
 ## Wrapping it all up
 
-You can now change the size of your table field to a max-size you want for your tables and give the content creator the simple instructions to leave a column empty if he doesn't need it. The size will be dynamically calculated and your table will look good on mobile devices. You can offcourse customize the styling to your own needs.
+You can now change the size of your table field to a max-size you want for your tables and give the content creator the simple instructions to leave a column empty if he doesn't need it. The size will be dynamically calculated and your table will look good on mobile devices. You can off course customize the styling to your own needs.
 
 The final component will look something like this. You can adjust the `tableSize` to your own max-size set in the CMS.
 ```twig
@@ -237,7 +236,7 @@ The final component will look something like this. You can adjust the `tableSize
   </thead>
  <tbody>
   {% else %}
-    <tr>	
+    <tr>
     {% for i in 0..(tableSize - 1) %}
       {% if width > i %}
         {% set colName = "col" ~ (i + 1) %}
@@ -251,3 +250,6 @@ The final component will look something like this. You can adjust the `tableSize
 </tbody>
 </table>
 ```
+And the result:
+
+![Responsive table](./responsive-table.gif)

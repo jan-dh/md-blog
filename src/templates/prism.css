@@ -6,7 +6,7 @@
 
 .gatsby-highlight{
 	border-radius: 0.3em;
-	margin: 0 0 2rem;
+	margin: 0 0 1rem;
 	overflow: hidden;
 }
 
@@ -227,6 +227,6 @@ span.gatsby-highlight-code-line:after {
 	top:0;
 	left:-12px;
 	height:100%;
-	width:6px;
+	width:5px;
 	background-color:#8dacbd;
 }

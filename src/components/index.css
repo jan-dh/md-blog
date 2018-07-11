@@ -667,7 +667,7 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 1rem 0;
+  margin: 1.5rem 0 1rem;
 }
 
 p {
@@ -4813,7 +4813,7 @@ a {
   * @import "utilities/skew-transforms";
   */
 
-@media (min-width: 576px) {
+@media (min-width: 480px) {
   .sm\:list-reset {
     list-style: none;
     padding: 0;
