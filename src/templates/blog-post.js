@@ -38,6 +38,9 @@ class BlogPostTemplate extends React.Component {
           <span className="text-sm text-grey-dark mb-4 inline-block">Published on <time>{post.frontmatter.date}</time> - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} read</span>
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            {categories.map(category => (
+              <span className="inline-block text-xs py-1 px-2 mt-0 mr-2 rounded-xl mb-1 ml-0 text-grey-darker bg-grey-lighter" key={category}>#{category[0].toUpperCase()}{category.slice(1)}</span>
+            ))}
           <Bio />
         </div>
       </Layout>

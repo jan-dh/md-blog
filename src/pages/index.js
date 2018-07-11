@@ -41,7 +41,10 @@ class BlogIndex extends React.Component {
               <Link to={node.fields.slug}  className="mx-auto max-w-sm p-4 mb-8 bg-white rounded-lg shadow block">
                 <h3 className="my-1 text-xl inline-block text-black">{title}</h3>
                 <span className="text-sm text-grey"> - {node.frontmatter.date}</span>
-                <p className="text-grey-darker mt-4 mb-0 text-base" dangerouslySetInnerHTML={{ __html: node.frontmatter.intro }} />
+                <p className="text-grey-darker my-4 text-base" dangerouslySetInnerHTML={{ __html: node.frontmatter.intro }} />
+                {node.frontmatter.categories.map(category => (
+                  <span className="inline-block text-xs py-1 px-2 mt-0 mr-2 rounded-xl mb-1 ml-0 text-grey-darker bg-grey-lighter" key={category}>#{category[0].toUpperCase()}{category.slice(1)}</span>
+                ))}
               </Link>
             </div>
           )
@@ -77,6 +80,7 @@ export const pageQuery = graphql`
             date(formatString: "DD.MM.YYYY")
             title
             intro
+            categories
           }
         }
       }

@@ -53,7 +53,7 @@ let colors = {
   'grey': '#b8c2cc',
   'grey-card':'#f5f5f5',
   'grey-light': '#f1f1f1',
-  'grey-lighter': '#f1f5f8',
+  'grey-lighter': '#ecebeb',
   'grey-lightest': '#f9f8f8',
   'white': '#ffffff',
 
@@ -446,6 +446,7 @@ module.exports = {
     'sm': '.125rem',
     default: '.25rem',
     'lg': '.5rem',
+    'xl': '1rem',
     'full': '9999px',
   },
 
