@@ -16,6 +16,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const postUrl = get(this, 'props.location.pathname')
+    const intro = get(this, 'post.frontmatter.intro')
     const ogImage = get(this, 'post.frontmatter.featuredImage.childImageSharp.sizes.src')
 
     return (
@@ -23,13 +24,13 @@ class BlogPostTemplate extends React.Component {
       <Helmet
         title= {`${post.frontmatter.title} | ${siteTitle}`}
         meta = {[
-            { name: "description","content": post.intro},
+            { name: "description","content": post.frontmatter.intro},
             { name: 'twitter:title', content: post.frontmatter.title },
-            { name: 'twitter:image', content: post.frontmatter.featuredImage },
+            { name: 'twitter:image', content: post.frontmatter.featuredImage.childImageSharp.sizes.src },
             { property: "og:title", content: post.frontmatter.title},
-            { property: "og:description","content": post.intro},
+            { property: "og:description","content": post.frontmatter.intro},
             { property: "og:url", content: `https://www.thebasement.be${postUrl}`},
-            { property: "og:image", content:  `https://www.thebasement.be${ogImage}`},
+            { property: "og:image", content: post.frontmatter.featuredImage.childImageSharp.sizes.src},
           ]}
         >
         <html lang="en" />
