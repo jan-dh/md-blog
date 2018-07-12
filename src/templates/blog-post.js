@@ -18,17 +18,18 @@ class BlogPostTemplate extends React.Component {
     const postUrl = get(this, 'props.location.pathname')
     const intro = get(this, 'post.frontmatter.intro')
     const ogImage = get(this, 'post.frontmatter.featuredImage.childImageSharp.sizes.src')
+    console.log(post.frontmatter.featuredImage);
 
     return (
       <Layout location={this.props.location}>
       <Helmet
         title= {`${post.frontmatter.title} | ${siteTitle}`}
         meta = {[
-            { name: "description","content": post.frontmatter.intro},
+            { name: "description", content: post.frontmatter.intro},
             { name: 'twitter:title', content: post.frontmatter.title },
-            { name: 'twitter:image', content: post.frontmatter.featuredImage.childImageSharp.sizes.src },
+            { name: 'twitter:image', content: post.frontmatter.featuredImage.absolutePath },
             { property: "og:title", content: post.frontmatter.title},
-            { property: "og:description","content": post.frontmatter.intro},
+            { property: "og:description", content: post.frontmatter.intro},
             { property: "og:url", content: `https://www.thebasement.be${postUrl}`},
             { property: "og:image", content: post.frontmatter.featuredImage.childImageSharp.sizes.src},
           ]}
@@ -73,6 +74,7 @@ export const pageQuery = graphql`
         intro
         featuredImage {
           publicURL
+          absolutePath
           childImageSharp {
             sizes(maxWidth: 1400 ) {
               src
