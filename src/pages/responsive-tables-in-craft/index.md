@@ -2,24 +2,24 @@
 title: Responsive tables in Craft
 date: "2018-07-10T22:12:03.284Z"
 categories: ['craft','twig']
-featuredImage: "./tables.jpg"
+featuredImage: "./tables2.jpg"
 intro: "Tables today are still a powerful tool for displaying data in a nice and orderly fashion. In this post we’ll make a twig component for Craft CMS that makes working with responsive tables a breeze."
 ---
 
-I saw a tweet from [Matt Smith](https://twitter.com/AllThingsSmitty/) passing by on responsive tables. Checking out the [pen](https://codepen.io/AllThingsSmitty/pen/MyqmdM) he made, I thought it was an excellent way to implement responsive tables, so I decided to make a small reusable component for my Craft sites.  Have a look at the pen to understand what’s going on: data-attributes are being used to provide content on the mobile version of the table.
+I saw a tweet from [Matt Smith](https://twitter.com/AllThingsSmitty/) passing by on responsive tables. Checking out the [pen](https://codepen.io/AllThingsSmitty/pen/MyqmdM) I thought it was an excellent way to implement responsive tables, so I decided to make a small reusable component for my Craft sites.  Have a look at the pen to understand what’s going on. Most important thing to notice: data-attributes are being used to provide content on the mobile version of the table.
 
 ## Creating the table
-Time to make our own. First we need to make a table field in Craft. We’ll make a table with 6 columns. Leave the column heading blank and set the handle for each column with a `col` + index.
+Time to make our own. Make a table field in Craft with 6 columns. Leave the column heading blank and set the handle for each column to `col` + the index.
 
 ![Creating a table field](./create-table.png)
 
-We fill out the new table field with some dummy data. Use the first line as the table header.
+Fill the table field with some dummy data and use the first line as the table header.
 
 ![Filling in the table field](./fill-in-table.png)
 
 ## Building the template
 
-Make a new twig file in your templates folder. This is the actual component you're going to import later on. In the first step we’re going to set our table size, hardcoded for now. Next we'll create an empty object we will use to pass the content of our table header (the first row) to the other rows. Since we don't use the first row, we only need `tableSize - 1` as the amount of iterations. The empty object is now filled with key-value pairs, for example `label1:1`.
+Make a new twig file in your templates folder. This is the actual component you're going to import later on. In the first step we’re going to set our table size. For now it's hardcoded. Next we'll create an empty object. We'll fill this object with the content or our table header (the first row) so we can pass it on to the other rows. Since we don't use the first row, we only need `tableSize - 1` as the amount of iterations. The empty object is now filled with key-value pairs, for example `label1:1`.
 
 ```twig
 {# Set the table size here #}
@@ -34,7 +34,7 @@ Make a new twig file in your templates folder. This is the actual component you'
 {% endfor %}
 ```
 
-Next step is to create the actual table. We use the first row to create the table head.
+Next step is to create the actual table. As we said before, we'll use the first row to create the table head.
 
 ```twig
 <table class="responsive-table">
@@ -56,7 +56,7 @@ Next step is to create the actual table. We use the first row to create the tabl
   {% else %}
 ```
 
-Notice that we also set the `labelName` in our empty object with the corresponding `colValue`. This is used to set the data-attributes in our table:
+Notice that we also set the `labelName` in our empty object with the corresponding `colValue`. We need this value to set the data-attributes in our table:
 
 ```twig
   <tr>
@@ -78,9 +78,9 @@ We create the body of the table looping over the table size. For each `td` we se
 
 ## Let's get dynamic
 
-This all works fine but it's not very handy. If the content creator wants to use some different tables that contain 4 or 7 columns, you'll have to rewrite the whole thing again and again, not very DRY.
+This is all fine, but it's not very handy. If the content creator wants to use a different table size, you'll have to rewrite the whole thing again and again, not very DRY.
 
-We'll start by introducing a new variable `width` which we will use to save the actual size of the table.
+We'll start by introducing a new variable `width`, which we will use to save the actual size of the table.
 
 ```twig{1,9,10,14}
 {% set width = 1 %}
@@ -199,9 +199,9 @@ table.responsive-table {
 
 ## Wrapping it all up
 
-You can now change the size of your table field to a max-size you want for your tables and give the content creator the simple instructions to leave a column empty if he doesn't need it. The size will be dynamically calculated and your table will look good on mobile devices. You can off course customize the styling to your own needs.
+You can now change the size of your table field to a max-size you want for your tables and give the content creator the simple instructions to leave a column empty if he doesn't want need it. The size will be dynamically calculated and the empty columns will not be shown. And your table will look good on mobile devices!. You can off course customize the styling to your own needs.
 
-The final component will look something like this. You can adjust the `tableSize` to your own max-size set in the CMS.
+The final component will look something like this. Just make sure you adjust the `tableSize` to your own max-size set in the admin panel.
 ```twig
 {# Set the table size here #}
 {% set tableSize = 12 %}

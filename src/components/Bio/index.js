@@ -9,8 +9,8 @@ class Bio extends React.Component {
         <div className="md:mr-12 flex-no-shrink w-full md:w-auto">
           <img src={profilePic} alt="Jan D'Hollander" className="rounded-full mb-0 bio-pic" />
         </div>
-        <div>
-          <p className="my-4">Hi, I'm <strong>Jan D'Hollander.</strong><br/>I am a Frontend Developer from Belgium who loves Craft CMS, Javascript and Css.</p>
+        <div className="content">
+          <p className="my-4">Hi, I'm <strong>Jan D'Hollander</strong>.<br/>Frontend Developer with a passion for Craft CMS, Javascript and Css. Wanna get in touch? Contact me on <a href="https://twitter.com/Jan_DHollander" target="_blank" rel="nofollow noopener" className="highlight">Twitter.</a></p>
         </div>
       </div>
     )
