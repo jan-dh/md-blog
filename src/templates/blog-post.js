@@ -15,23 +15,25 @@ class BlogPostTemplate extends React.Component {
     const categories = post.frontmatter.categories
     const { previous, next } = this.props.pageContext
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const postUrl = get(this, 'props.location.pathname')
-    const intro = get(this, 'post.frontmatter.intro')
-    const ogImage = get(this, 'post.frontmatter.featuredImage.childImageSharp.sizes.src')
-    console.log(post.frontmatter.featuredImage);
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl;
+    const postUrl = this.props.location.pathname
+    const title = post.frontmatter.title
+    const intro = post.frontmatter.intro
+    const fullUrl = `${siteUrl}${postUrl.substring(1)}`
+    const ogImage = `${siteUrl}${post.frontmatter.featuredImage.publicURL.substring(1)}`
 
     return (
       <Layout location={this.props.location}>
       <Helmet
         title= {`${post.frontmatter.title} | ${siteTitle}`}
         meta = {[
-            { name: "description", content: post.frontmatter.intro},
-            { name: 'twitter:title', content: post.frontmatter.title },
-            { name: 'twitter:image', content: post.frontmatter.featuredImage.absolutePath },
-            { property: "og:title", content: post.frontmatter.title},
-            { property: "og:description", content: post.frontmatter.intro},
-            { property: "og:url", content: `https://www.thebasement.be${postUrl}`},
-            { property: "og:image", content: post.frontmatter.featuredImage.childImageSharp.sizes.src},
+            { name: "description", content: intro},
+            { name: 'twitter:title', content: title },
+            { name: 'twitter:image', content: ogImage },
+            { property: "og:title", content: title },
+            { property: "og:description", content: intro },
+            { property: "og:url", content: fullUrl},
+            { property: "og:image", content: ogImage },
           ]}
         >
         <html lang="en" />
@@ -74,9 +76,8 @@ export const pageQuery = graphql`
         intro
         featuredImage {
           publicURL
-          absolutePath
           childImageSharp {
-            sizes(maxWidth: 1400 ) {
+            sizes(maxWidth: 768 ) {
               src
             }
           }

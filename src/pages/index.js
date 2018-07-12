@@ -11,12 +11,12 @@ import Header from '../components/Header';
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const siteDescription = get(this, 'props.data.site.siteMetadata.description')
-    const siteUrl = get(this, 'props.data.site.siteMetadata.siteUrl')
-    const siteName = get(this, 'props.data.site.siteMetadata.siteName')
-    const ogImage = get(this, 'props.data.site.siteMetadata.ogImage')
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const siteDescription = this.props.data.site.siteMetadata.description
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl
+    const siteName = this.props.data.site.siteMetadata.siteName
+    const ogImage = this.props.data.site.siteMetadata.ogImage
+    const posts = this.props.data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location}>
