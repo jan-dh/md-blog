@@ -28,7 +28,7 @@ class BlogPostTemplate extends React.Component {
             { property: "og:title", content: post.frontmatter.title},
             { property: "og:description","content": post.intro},
             { property: "og:url", content: `https://www.thebasement.be${postUrl}`},
-            { property: "og:image", content: post.frontmatter.featuredImage },
+            { property: "og:image", content: post.frontmatter.featuredImage.childImageSharp.sizes.src },
           ]}
         >
         <html lang="en" />
@@ -37,6 +37,7 @@ class BlogPostTemplate extends React.Component {
           <h1 className="my-0 lg:leading-loose text-4xl font-bold mb-2">{post.frontmatter.title}</h1>
           <span className="text-sm text-grey-dark mb-4 inline-block">Published on <time>{post.frontmatter.date}</time> - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} read</span>
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
+          <img src={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
             {categories.map(category => (
               <span className="inline-block text-xs py-1 px-2 mt-0 mr-2 rounded-xl mb-1 ml-0 text-grey-darker bg-grey-lighter" key={category}>#{category[0].toUpperCase()}{category.slice(1)}</span>
@@ -66,9 +67,16 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        featuredImage
         categories
         intro
+        featuredImage {
+          publicURL
+          childImageSharp {
+            sizes(maxWidth: 1400 ) {
+              src
+            }
+          }
+        }
       }
     }
   }

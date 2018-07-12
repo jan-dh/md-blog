@@ -2,7 +2,7 @@
 title: Responsive tables in Craft
 date: "2018-07-10T22:12:03.284Z"
 categories: ['craft','twig']
-featuredImage: "https://picsum.photos/768/474"
+featuredImage: "./tables.jpg"
 intro: "Tables today are still a powerful tool for displaying data in a nice and orderly fashion. In this post we’ll make a twig component for Craft CMS that makes working with responsive tables a breeze."
 ---
 
