@@ -16,6 +16,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const postUrl = get(this, 'props.location.pathname')
+    const ogImage = get(this, 'post.frontmatter.featuredImage.childImageSharp.sizes.src')
 
     return (
       <Layout location={this.props.location}>
@@ -28,7 +29,7 @@ class BlogPostTemplate extends React.Component {
             { property: "og:title", content: post.frontmatter.title},
             { property: "og:description","content": post.intro},
             { property: "og:url", content: `https://www.thebasement.be${postUrl}`},
-            { property: "og:image", content: post.frontmatter.featuredImage.childImageSharp.sizes.src },
+            { property: "og:image", content:  `https://www.thebasement.be${ogImage}`},
           ]}
         >
         <html lang="en" />
