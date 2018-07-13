@@ -20,7 +20,7 @@ export default ({ children, location}) => {
         <meta name="theme-color" content="#fec001" />
       </Helmet>,
       <div className="container bg-grey-lightest flex flex-col min-h-screen">
-        <Header key="app-header" location={location.pathname}  className="flex-1" />
+        <Header key="app-header" location={location.pathname} />
         <Main key="app-main">
           {children}
         </Main>
