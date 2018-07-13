@@ -19,8 +19,8 @@ export default ({ children, location}) => {
         <meta name="msapplication-TileColor" content="#fec001" />
         <meta name="theme-color" content="#fec001" />
       </Helmet>,
-      <div className="container bg-grey-lightest">
-        <Header key="app-header" location={location.pathname} />
+      <div className="container bg-grey-lightest flex flex-col min-h-screen">
+        <Header key="app-header" location={location.pathname}  className="flex-1" />
         <Main key="app-main">
           {children}
         </Main>
