@@ -10,7 +10,7 @@ class Bio extends React.Component {
           <img src={profilePic} alt="Jan D'Hollander" className="rounded-full mb-0 bio-pic" />
         </div>
         <div className="content">
-          <p className="my-4">Hi, I'm <strong>Jan D'Hollander</strong>.<br/>Frontend Developer with a passion for Craft CMS, Javascript and Css. Wanna get in touch? Contact me on <a href="https://twitter.com/Jan_DHollander" target="_blank" rel="nofollow noopener" className="highlight">Twitter.</a></p>
+          <p className="my-4">Hi, I'm <strong>Jan D'Hollander</strong>.<br/>Frontend Developer with a soft spot for Craft CMS. Want get in touch? Contact me on <a href="https://twitter.com/Jan_DHollander" target="_blank" rel="nofollow noopener" className="highlight">Twitter.</a></p>
         </div>
       </div>
     )
