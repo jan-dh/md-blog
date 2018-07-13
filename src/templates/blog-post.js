@@ -8,7 +8,6 @@ import './prism.css'
 
 import Bio from '../components/Bio'
 import Layout from '../components/layout'
-import ShareAndComment from '../components/ShareAndComment'
 
 class BlogPostTemplate extends React.Component {
   render() {
