@@ -24,7 +24,7 @@ class Header extends React.Component {
     else{
       return(
         <div className="max-w-full py-4 bg-white font-bold px-4">
-          <div className="mx-auto max-w-md">
+          <div className="mx-auto max-w-md content">
             <Link to="/" className="highlight leading-loose my-0 font-bold font-oswald text-xl">The Basement</Link>
           </div>
         </div>
