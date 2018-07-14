@@ -8,6 +8,10 @@ module.exports = {
     ogImage: 'https://www.thebasement.be/thebasement.jpg'
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-feed`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -62,10 +66,14 @@ module.exports = {
         head:true,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.thebasement.be',
+        sitemap: 'https://www.thebasement.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     // `gatsby-plugin-offline`,
   ],
 }
