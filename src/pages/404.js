@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import {graphql} from 'gatsby'
+import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 
@@ -8,19 +10,24 @@ class NotFound extends React.Component {
     const posts = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location}>
-      <div className="mx-auto max-w-sm pt-12 pb-8">
+      <Helmet
+        title= 'Page not found'
+      />
+      <div className="mx-auto max-w-sm pt-12 pb-8 content">
         <h1>Page not found</h1>
         <p className="my-4">This is not the page you are looking for.</p>
         <img src="/404.gif" alt="404"/>
-       {posts.map(({node}) => {
-          return (
-            <div className="my-4">
-            <p className="my-4">Maybe you were looking for one of these posts?</p>
-              <Link to={node.fields.slug}  className="highlight"  key={node.fields.slug}>{node.frontmatter.title}</Link>
-              <span className="text-sm text-grey"> - {node.frontmatter.date}</span>
-            </div>
-          )
-        })}
+        <p className="my-4">Maybe you were looking for one of these posts?</p>
+        <ul>
+         {posts.map(({node}) => {
+            return (
+              <li key={node.fields.slug}>
+                <Link to={node.fields.slug}  className="highlight">{node.frontmatter.title}</Link>
+                <span className="text-sm text-grey"> - {node.frontmatter.date}</span>
+              </li>
+            )
+          })}
+        </ul>
       </div>
       </Layout>
     )
