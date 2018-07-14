@@ -11,29 +11,9 @@ import Header from '../components/Header';
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const siteDescription = this.props.data.site.siteMetadata.description
-    const siteUrl = this.props.data.site.siteMetadata.siteUrl
-    const siteName = this.props.data.site.siteMetadata.siteName
-    const ogImage = this.props.data.site.siteMetadata.ogImage
     const posts = this.props.data.allMarkdownRemark.edges
-
     return (
-      <Layout location={this.props.location}>
-        <Helmet
-          title= {siteTitle}
-          meta = {[
-              { name: "description","content": siteDescription},
-              { name: 'twitter:title', content: siteTitle },
-              { name: 'twitter:image', content: ogImage },
-              { property: "og:title", content: siteTitle},
-              { property: "og:description","content": siteDescription},
-              { property: "og:url", content: siteUrl},
-              { property: "og:image", content: ogImage },
-            ]}
-        >
-          <html lang="en" />
-        </Helmet>
+      <Layout location={this.props.location} data={this.props.data}>
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (
@@ -61,12 +41,12 @@ export const pageQuery = graphql`
   query IndexQuery {
     site {
       siteMetadata {
-        title,
-        author,
-        description,
-        siteUrl,
-        ogImage,
+        title
+        author
+        description
         siteName
+        siteUrl
+        ogImage
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

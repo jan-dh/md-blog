@@ -5,7 +5,7 @@ class Footer extends React.Component {
     super()
   }
   render(){
-    const css = this.props.location =='/' ? 'mx-auto max-w-sm' : 'mx-auto max-w-md';
+    const css = this.props.location =='/' ? 'mx-auto max-w-sm' : 'mx-auto max-w-md'
     return(
       <div className="mt-16 bg-grey-light py-4 text-sm px-4">
         <div className={css}>

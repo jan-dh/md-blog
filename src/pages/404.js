@@ -38,6 +38,16 @@ export default NotFound
 
 export const notFoundQuery = graphql`
   query notFoundQuery {
+    site {
+      siteMetadata {
+        title
+        author
+        description
+        siteName
+        siteUrl
+        ogImage
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
