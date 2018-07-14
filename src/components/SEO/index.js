@@ -12,13 +12,15 @@ class SEO extends React.Component {
         <html lang="en" />
         <title>{data.title}</title>
         <meta name="description" content="{data.intro}" />
-        <meta name="og:title" content={data.title} />
-        <meta name="og:description" content={data.description} />
-        <meta name="og:url" content={data.siteUrl} />
-        <meta name="og:image" content={data.ogImage} />
-        <meta name="og:site_name" content={data.siteName} />
-        <meta name="og:author" content={data.author} />
-        <meta name="og:type" content="article" />
+        <meta property="og:title" content={data.title} />
+        <meta property="og:description" content={data.description} />
+        <meta property="og:url" content={data.siteUrl} />
+        <meta property="og:image" content={data.ogImage} />
+        <meta property="og:site_name" content={data.siteName} />
+        <meta property="og:author" content={data.author} />
+        <meta property="og:type" content="website" />
+        <meta property="og:see_also" content="https://twitter.com/Jan_DHollander" />
+        <meta property="og:locale" content="en" />
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:image" content={data.ogImage} />
         <meta name="twitter:card" content="summary" />

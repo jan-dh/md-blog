@@ -34,6 +34,7 @@ class BlogPostTemplate extends React.Component {
             { property: "og:description", content: intro },
             { property: "og:url", content: fullUrl},
             { property: "og:image", content: ogImage },
+            { property: "og:type", content: 'article'}
           ]}
         />
         <div className="content mx-auto max-w-md mt-8">
