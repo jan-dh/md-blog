@@ -19,7 +19,7 @@ Fill the table field with some dummy data and use the first line as the table he
 
 ## Building the template
 
-Make a new twig file in your templates folder. This is the actual component you're going to import later on. In the first step we’re going to set our table size. For now it's hardcoded. Next we'll create an empty object. We'll fill this object with the content or our table header (the first row) so we can pass it on to the other rows. Since we don't use the first row, we only need `tableSize - 1` as the amount of iterations. The empty object is now filled with key-value pairs, for example `label1:1`.
+Make a new twig file in your templates folder. This is the actual component you're going to import later on. In the first step we’re going to set our table size. For now it's hardcoded. Next we'll create an empty object. We'll fill this object with the content of our table header (the first row) so we can pass it on to the other rows. Since we don't use the first row, we only need `tableSize - 1` as the amount of iterations. The empty object is now filled with key-value pairs, for example `label1:1`.
 
 ```twig
 {# Set the table size here #}
@@ -80,7 +80,7 @@ We create the body of the table looping over the table size. For each `td` we se
 
 This is all fine, but it's not very handy. If the content creator wants to use a different table size, you'll have to rewrite the whole thing again and again, not very DRY.
 
-We'll start by introducing a new variable `width`, which we will use to save the actual size of the table.
+In order to make it dynamic, we'll start by introducing a new variable `width`, which we will use to save the actual size of the table.
 
 ```twig{1,9,10,14}
 {% set width = 1 %}
@@ -199,7 +199,7 @@ table.responsive-table {
 
 ## Wrapping it all up
 
-You can now change the size of your table field to a max-size you want for your tables and give the content creator the simple instructions to leave a column empty if he doesn't want need it. The size will be dynamically calculated and the empty columns will not be shown. And your table will look good on mobile devices!. You can off course customize the styling to your own needs.
+You can now change the size of your table field to a max-size you want for your tables and give the content creator the simple instructions to only use the amount of columns he or she needs. The size will be dynamically calculated and the empty columns will not be shown, and your table will look good on mobile devices! You can off course customize the styling to your own needs.
 
 The final component will look something like this. Just make sure you adjust the `tableSize` to your own max-size set in the admin panel.
 ```twig
