@@ -707,7 +707,8 @@ a {
   left: 4px;
 }
 
-.content a:hover:before {
+.content a:hover:before,
+a.highlight:before {
   bottom: 1px;
   left: 0;
 }
