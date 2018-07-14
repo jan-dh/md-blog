@@ -3,9 +3,9 @@ module.exports = {
     title: 'The Basement',
     author: 'Jan D\'Hollander',
     description: 'Thoughts & insights on Web Development with a focus on Craft CMS, front-end Tools and Best-Practices.',
-    siteUrl: 'https://www.thebasement.be/thebasement.jpg',
+    siteUrl: 'https://www.thebasement.be/',
     siteName: 'The Basement',
-    ogImage: 'https:www.thebasement.be/thebasement.jpg'
+    ogImage: 'https://www.thebasement.be/thebasement.jpg'
   },
   plugins: [
     {
