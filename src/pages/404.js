@@ -9,7 +9,7 @@ class NotFound extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} data={this.props.data}>
       <Helmet
         title= 'Page not found'
       />

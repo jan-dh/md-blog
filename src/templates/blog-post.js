@@ -23,7 +23,7 @@ class BlogPostTemplate extends React.Component {
     const ogImage = `${siteUrl}${post.frontmatter.featuredImage.publicURL.substring(1)}`
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} data={this.props.data}>
       <Helmet
         title= {`${post.frontmatter.title} | ${siteTitle}`}
         meta = {[
@@ -58,6 +58,16 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+        description
+        siteName
+        siteUrl
+        ogImage
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html

@@ -13,7 +13,6 @@ class Layout extends React.Component {
   render(){
     const { location, children, data } = this.props
     const metaData = data.site.siteMetadata
-    console.log(data)
     return(
       <div className="container bg-grey-lightest flex flex-col min-h-screen">
         <SEO data={metaData} />
