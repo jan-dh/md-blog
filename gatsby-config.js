@@ -12,7 +12,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-feed`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -73,6 +72,12 @@ module.exports = {
         host: 'https://www.thebasement.be',
         sitemap: 'https://www.thebasement.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: `/sitemap.xml`,
       }
     },
     // `gatsby-plugin-offline`,
