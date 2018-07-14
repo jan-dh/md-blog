@@ -13,7 +13,7 @@ class NotFound extends React.Component {
       <Helmet
         title= 'Page not found'
       />
-      <div className="mx-auto max-w-sm pt-12 pb-8 content">
+      <div className="mx-auto max-w-md mt-8 content">
         <h1>Page not found</h1>
         <p className="my-4">This is not the page you are looking for.</p>
         <img src="/404.gif" alt="404"/>
