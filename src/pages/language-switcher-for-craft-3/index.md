@@ -76,13 +76,13 @@ The complete language switcher:
 {% set langSwitcher = craft.app.sites.getAllSites() %}
 {# Get slug #}
 {% set slug = craft.app.request.segments|last %}
+{# Test for entry or category #}
+{% set testEntry = craft.entries.slug(slug).one().id ?? null %}
+{% set testCategory = craft.categories.slug(slug).one().id ?? null %}
 <ul>
 	{% for lang in langSwitcher %}
 		{# Set homepage as default #}
 		{% set url = alias(lang.baseUrl) %}
-		{# Test for entry or category #}
-		{% set testEntry = craft.entries.slug(slug).one().id ?? null %}
-		{% set testCategory = craft.categories.slug(slug).one().id ?? null %}
 		{# Entry found with id that matches current slug #}
 		{% if testEntry %}
 			{# Check if that entry exists in other locale #}
