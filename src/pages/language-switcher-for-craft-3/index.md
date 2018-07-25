@@ -8,6 +8,8 @@ intro: "Craft 3 introduced some changes to locales and the multi-site setup. On 
 
 As from Craft 3, locales are replaced by sites. Each site can have it's own language. For clarity, I will refer to other sites by language for the rest of this post.
 
+## Basic approach
+
 The basic approach for this switcher will be: check if the entry or the category exists in the other language; if not, set the toggle url to the homepage of that other language.
 
 We start off by getting an array of all the sites as well as the current slug:
@@ -35,6 +37,8 @@ Next we’ll get the baseUrl of each language. Notice the use of the new functio
 
 This would be a working solution. The only downside of this approach is that the user would always be redirected to the homepage of the other language. Not very ideal - we would rather have the user to land on the current page but in the selected language.
 
+## A dynamic language switch
+
 So, right after we set the url variable, we should test if the current slug we set matches either an entry or a category in the current language.
 
 ```twig
@@ -46,7 +50,7 @@ So, right after we set the url variable, we should test if the current slug we s
 If that's the case, then we'll check each language in the loop to see if there's an entry or a category that matches the current entry or category (based on their `id`).
 
 ```twig
-{# entry found with id that matches current slug #}
+{# Entry found with id that matches current slug #}
 {% if testEntry %}
 	{# Check if that entry exists in other locale #}
 	{% set otherLocaleEntry = craft.entries.siteId(lang.id).id(testEntry).one() %}
@@ -54,7 +58,7 @@ If that's the case, then we'll check each language in the loop to see if there's
 		{% set url = otherLocaleEntry.url %}
 	{% endif %}
 {# Category found with id that matches current slug #}
-{% elseif	testCategory %}
+{% elseif testCategory %}
 	{# Check if that entry exists in other locale #}
 	{% set otherLocaleCat = craft.categories.siteId(lang.id).id(testCategory).one() %}
 	{% if otherLocaleCat %}
@@ -95,7 +99,7 @@ The complete language switcher:
 				{% set url = otherLocaleEntry.url %}
 			{% endif %}
 		{# Category found with id that matches current slug #}
-		{% elseif	testCategory %}
+		{% elseif testCategory %}
 			{# Check if that entry exists in other locale #}
 			{% set otherLocaleCat = craft.categories.siteId(lang.id).id(testCategory).one() %}
 			{% if otherLocaleCat %}
@@ -109,9 +113,11 @@ The complete language switcher:
 </ul>
 ```
 
+## Flexibility
+
 The reason why I like this approach is because it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in another language. You could also limit the language switcher to only include the sites in the current site group by adding a check to see if the language `groupId` matches the current `groupId`.
 
-```
+```twig
 {% for lang in langSwitcher %}
 	{% if lang.groupId == currentSite.groupId %}
 	...
