@@ -1,0 +1,17 @@
+/* TEAM */
+
+Creator: Jan D'Hollander
+URL: https://thebasement.be/
+Description: Thoughts & insights on Web Development with a focus on Craft CMS, Front-end Tools and Best-Practices.
+
+/* THANKS */
+
+CraftCMS - https://craftcms.com
+Pixel & Tonic - https://pixelandtonic.com
+GatsbyJS - https://www.gatsbyjs.org/
+Tailwind CSS - https://tailwindcss.com/
+
+/* SITE */
+
+Standards: HTML5, CSS3
+Components: Craft CMS 3, Twig, JavaScript

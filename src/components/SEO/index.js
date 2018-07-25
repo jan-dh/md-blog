@@ -17,7 +17,6 @@ class SEO extends React.Component {
         <meta property="og:url" content={data.siteUrl} />
         <meta property="og:image" content={data.ogImage} />
         <meta property="og:site_name" content={data.siteName} />
-        <meta property="og:author" content={data.author} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:see_also" content="https://twitter.com/Jan_DHollander" />
@@ -26,6 +25,7 @@ class SEO extends React.Component {
         <meta name="twitter:image" content={data.ogImage} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@Jan_DHollander" />
+        <link type="text/plain" href="/humans.txt" rel="author">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
