@@ -69,14 +69,6 @@ If that's the case, then we'll check each language in the loop to see if there's
 
 Now we have a `url` variable for each language that has either the homepage or a link to a matching entry or category. We set the active class if our current site `id` matches the language in our loop.
 
-```twig
-	<li>
-		<a href="{{url}}" {% if lang.id == currentSite.id %}class="active"{% endif %}>{{lang.language|upper}}</a>
-	</li>
-	{% endfor %}
-</ul>
-```
-
 The complete language switcher:
 
 ```twig
