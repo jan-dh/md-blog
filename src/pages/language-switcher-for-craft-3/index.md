@@ -115,7 +115,7 @@ The complete language switcher:
 
 ## Flexibility
 
-The reason why I like this approach is because it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in another language. You could also limit the language switcher to only include the sites in the current site group by adding a check to see if the language `groupId` matches the current `groupId`.
+The reason why I like this approach is because it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in another language. You could also limit the language switcher to only include the sites in the current site group by adding a check to see if the language `groupId` matches the current one.
 
 ```twig
 {% for lang in langSwitcher %}
