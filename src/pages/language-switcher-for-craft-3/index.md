@@ -128,4 +128,6 @@ If you want to exclude the current site you could do that by using the `|without
 {% set langSwitcher = craft.app.sites.getAllSites()|without(currentSite) %}
 ```
 
+
+
 *Do note that there's a bugfix on the way for the `|without` filter. Currently this will give you all the sites, even the one passed within the filter.*
