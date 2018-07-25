@@ -28,7 +28,7 @@ class BlogPostTemplate extends React.Component {
         title= {`${post.frontmatter.title} | ${siteTitle}`}
         meta = {[
             { name: "description", content: intro},
-            { name: 'twitter:title', content: title },
+            { name: 'twitter:title', content: `${title} | ${siteTitle}`},
             { name: 'twitter:image', content: ogImage },
             { property: "og:title", content: title },
             { property: "og:description", content: intro },
