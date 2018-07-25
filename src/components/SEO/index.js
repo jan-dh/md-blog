@@ -18,6 +18,7 @@ class SEO extends React.Component {
         <meta property="og:image" content={data.ogImage} />
         <meta property="og:site_name" content={data.siteName} />
         <meta property="og:author" content={data.author} />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:see_also" content="https://twitter.com/Jan_DHollander" />
         <meta property="og:locale" content="en" />
