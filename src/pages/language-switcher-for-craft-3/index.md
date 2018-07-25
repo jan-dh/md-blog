@@ -27,7 +27,7 @@ Next we’ll get the baseUrl of each language. Notice the use of the new functio
 <ul>
 	{% for lang in langSwitcher %}
 		{# Get base URL #}
-		{% set url = lang.baseUrl|replace('@web', alias('@web')) %}
+		{% set url = alias(lang.baseUrl) %}
 		<li>
 			<a href="{{url}}" {% if lang.id == currentSite.id %}class="active"{% endif %}>{{lang.language|upper}}</a>
 		</li>
@@ -79,7 +79,7 @@ The complete language switcher:
 <ul>
 	{% for lang in langSwitcher %}
 		{# Set homepage as default #}
-		{% set url = lang.baseUrl|replace('@web', alias('@web')) %}
+		{% set url = alias(lang.baseUrl) %}
 		{# Test for entry or category #}
 		{% set testEntry = craft.entries.slug(slug).one().id ?? null %}
 		{% set testCategory = craft.categories.slug(slug).one().id ?? null %}
