@@ -101,7 +101,9 @@ The complete language switcher:
 </ul>
 ```
 
-The reason why I like this approach is provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in an other language. You can also transform this to a select dropdown excluding the current site like so:
+The reason why I like this approach is it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in an other language.
+
+If you want to exclude the current site you could do that by using the `|without` filter:
 ```twig
 {% set langSwitcher = craft.app.sites.getAllSites()|without(currentSite) %}
 ```
