@@ -39,7 +39,7 @@ This would be a working solution. The only downside of this approach is that the
 
 ## A dynamic language switch
 
-So, right after we set the url variable, we should test if the current slug we set matches either an entry or a category in the current language.
+So, right after we set the slug variable, we should test if the current slug we set matches either an entry or a category in the current language.
 
 ```twig
 {# Test for entry or category #}
