@@ -1,6 +1,6 @@
 ---
 title: Responsive tables in Craft
-date: "2018-07-10T22:12:03.284Z"
+date: "2018-07-10"
 updated: ""
 categories: ['craft','twig']
 featuredImage: "./tables2.jpg"

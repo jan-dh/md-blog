@@ -21,7 +21,9 @@ class BlogPostTemplate extends React.Component {
     const intro = post.frontmatter.intro
     const fullUrl = `${siteUrl}${postUrl.substring(1)}`
     const ogImage = `${siteUrl}${post.frontmatter.featuredImage.publicURL.substring(1)}`
-    const updated = post.frontmatter.updated.length > 0 ? ` - Updated on ${post.frontmatter.updated}` : ''
+    const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formatedUpdate = new Date(post.frontmatter.updated).toLocaleDateString('en-US', dateOptions)
+    const updated = post.frontmatter.updated != undefined ? ` - Updated on ${formatedUpdate}` : ''
 
     return (
       <Layout location={this.props.location} data={this.props.data}>
@@ -79,7 +81,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        updated(formatString: "MMMM DD, YYYY")
+        updated
         categories
         intro
         featuredImage {
