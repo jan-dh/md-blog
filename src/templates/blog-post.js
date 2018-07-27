@@ -22,6 +22,9 @@ class BlogPostTemplate extends React.Component {
     const intro = post.frontmatter.intro
     const fullUrl = `${siteUrl}${postUrl.substring(1)}`
     const ogImage = `${siteUrl}${post.frontmatter.featuredImage.publicURL.substring(1)}`
+    const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formatedUpdate = new Date(post.frontmatter.updated).toLocaleDateString('en-US', dateOptions)
+    const updated = post.frontmatter.updated != undefined ? ` - Updated on ${formatedUpdate}` : ''
 
     return (
       <Layout location={this.props.location} data={this.props.data}>
@@ -40,7 +43,8 @@ class BlogPostTemplate extends React.Component {
         />
         <div className="content mx-auto max-w-md mt-8">
           <h1 className="my-0 lg:leading-loose text-4xl font-bold mb-2">{post.frontmatter.title}</h1>
-          <span className="text-sm text-grey-dark mb-4 inline-block">Published on <time>{post.frontmatter.date}</time> - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} read</span>
+          <span className="text-sm text-grey-dark mb-4 inline-block">Published on <time>{post.frontmatter.date}</time>{updated} - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} read</span>
+          <p>{post.frontmatter.updated}</p>
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
           <img src={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -79,6 +83,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        updated
         categories
         intro
         featuredImage {
