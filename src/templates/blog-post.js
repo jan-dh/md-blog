@@ -7,6 +7,7 @@ import './prism.css'
 
 
 import Bio from '../components/Bio'
+import Share from '../components/Share'
 import Layout from '../components/layout'
 
 class BlogPostTemplate extends React.Component {
@@ -43,6 +44,7 @@ class BlogPostTemplate extends React.Component {
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
           <img src={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Share url={fullUrl} />
           <p>
             {categories.map(category => (
               <span className="inline-block text-xs py-1 px-2 mt-0 mr-2 rounded-xl mb-1 ml-0 text-grey-darker bg-grey-lighter leading-none" key={category}>#{category[0].toUpperCase()}{category.slice(1)}</span>
