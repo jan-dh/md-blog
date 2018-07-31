@@ -1,7 +1,7 @@
 ---
 title: Language switcher for Craft 3
-date: "2018-07-25"
-updated: "2018-07-26"
+date: "2018-07-31"
+updated: ""
 categories: ['craft','twig']
 featuredImage: "./language-switch.jpg"
 intro: "Craft 3 introduced some changes to locales and the multi-site setup. On top of that there are also a number of templating changes, so your old language switcher probably won't work anymore. So today we're building a brand new language switcher for Craft 3."
@@ -92,11 +92,11 @@ The complete language switcher:
 
 ## Flexibility
 
-The reason why I like this approach is because it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in another language. You could also limit the language switcher to only include the sites in the current site group by adding a check to see if the language `groupId` matches the current one.
+The reason why I like this approach is because it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in another language. You could also limit the language switcher to only include the sites in the current site group by setting the group first, based on the `currentSite.groupId` - and then get all the sites from within that group using `group.getSites()`.
 
 ```twig
-{% for lang in langSwitcher %}
-	{% if lang.groupId == currentSite.groupId %}
+{% set group = craft.app.getSites().getGroupById(currentSite.groupId) %}
+{% for lang in group.getSites() %}
 	...
 ```
 
