@@ -20,8 +20,8 @@ class BlogPostTemplate extends React.Component {
     const postUrl = this.props.location.pathname
     const title = post.frontmatter.title
     const intro = post.frontmatter.intro
-    const fullUrl = `${siteUrl}${postUrl.substring(1)}`
-    const ogImage = `${siteUrl}${post.frontmatter.featuredImage.publicURL.substring(1)}`
+    const fullUrl = `${siteUrl}/${postUrl.substring(1)}`
+    const ogImage = `${siteUrl}/${post.frontmatter.featuredImage.publicURL.substring(1)}`
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     const formatedUpdate = new Date(post.frontmatter.updated).toLocaleDateString('en-US', dateOptions)
     const updated = post.frontmatter.updated != undefined ? ` - Updated on ${formatedUpdate}` : ''
