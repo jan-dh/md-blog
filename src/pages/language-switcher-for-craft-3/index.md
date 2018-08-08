@@ -1,7 +1,7 @@
 ---
 title: Language switcher for Craft 3
 date: "2018-07-25"
-updated: "2018-07-31"
+updated: "2018-08-08"
 categories: ['craft','twig']
 featuredImage: "./language-switch.jpg"
 intro: "Craft 3 introduced some changes to locales and the multi-site setup. On top of that there are also a number of templating changes, so your old language switcher probably won't work anymore. So today we're building a brand new language switcher for Craft 3."
@@ -118,4 +118,5 @@ If you are using Craft Commerce you could check to see if you are on a product p
 ```
 <br>
 
-*Do note that there's a bugfix on the way for the `|without` filter. Currently this will give you all the sites, even the one passed within the filter.*
+*Do note that there's a bugfix on the way for the `|without` filter. Currently this will give you all the sites, even the one passed within the filter. - This was fixed in release 3.0.17*
+
