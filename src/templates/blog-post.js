@@ -59,8 +59,8 @@ class BlogPostTemplate extends React.Component {
               <span className="inline-block text-xs py-1 px-2 mt-0 mr-2 rounded-xl mb-1 ml-0 text-grey-darker bg-grey-lighter leading-none" key={category}>#{category[0].toUpperCase()}{category.slice(1)}</span>
             ))}
           </p>
-          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
           <Share url={fullUrl} />
+          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
           <Bio />
         </div>
       </Layout>
