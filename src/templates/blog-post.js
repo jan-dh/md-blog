@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import {graphql} from 'gatsby'
+import { DiscussionEmbed } from "disqus-react";
 import get from 'lodash/get'
 import './prism.css'
 
@@ -25,6 +26,12 @@ class BlogPostTemplate extends React.Component {
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     const formatedUpdate = new Date(post.frontmatter.updated).toLocaleDateString('en-US', dateOptions)
     const updated = post.frontmatter.updated != undefined ? ` - Updated on ${formatedUpdate}` : ''
+    // Disqus
+    const disqusShortname = "the-basement-1";
+    const disqusConfig = {
+      identifier: post.id,
+      title: post.frontmatter.title,
+    };
 
     return (
       <Layout location={this.props.location} data={this.props.data}>
@@ -52,6 +59,7 @@ class BlogPostTemplate extends React.Component {
               <span className="inline-block text-xs py-1 px-2 mt-0 mr-2 rounded-xl mb-1 ml-0 text-grey-darker bg-grey-lighter leading-none" key={category}>#{category[0].toUpperCase()}{category.slice(1)}</span>
             ))}
           </p>
+          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
           <Share url={fullUrl} />
           <Bio />
         </div>
