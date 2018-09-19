@@ -1,6 +1,6 @@
 ---
 title: Working with Babel 7 and Webpack
-date: "2018-09-09"
+date: "2018-09-20"
 categories: ['javascript','webpack','babel']
 featuredImage: "./tables2.jpg"
 intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel is and what it does. We'll set up a basic workflow in combination with Webpack."
