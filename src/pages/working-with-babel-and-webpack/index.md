@@ -99,7 +99,7 @@ Why is this? As you can see on [here](https://developer.mozilla.org/en-US/docs/W
 How would you make sure that IE11 users can use your next-gen javascript code? That's right, that's where Babel comes in.
 
 ## How to use Babel
-We'll need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `browserlistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
+We will need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `.browserlistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
 
 ### Installing the dependencies
 The functionality of Babel is split up in different npm-packages, so you can pick the parts you need for your project. The configuration for Babel is defined in a `.babelrc`-file.
@@ -109,23 +109,23 @@ Go ahead and install the packages we are going to need for this project. Make su
 npm install --save-dev @babel/core @babel/register @babel/preset-env babel-loader
 npm install --save  @babel/polyfill
 ```
-These are the packages we'll be using:
+These are the packages we will be using:
 #### @babel/core
-This package, as the name would suggest, is the core package. The package is responsible for compiling javascript code and outputting usable code. By default it uses your local configuration, but we'll get into that later on.
+This package, as the name would suggest, is the core package. The package is responsible for compiling javascript code and outputting usable code. By default it uses your local configuration, but we will get into that later on.
 #### @babel/register
-This package will enable us to use new features of javascript in our Webpack config. So not only the code we're going to output runs through Babel, but our javascript config files for Webpack will run through it as well.
+This package will enable us to use new features of javascript in our Webpack config. So not only the code we are going to output runs through Babel, but our javascript config files for Webpack will run through it as well.
 #### @babel/preset-env
-Knowing what browser supports what javascript feature is essential in transforming your code. Here's where `preset-env` comes in. It handles what transforms should be applied, based on your own input. You tell Babel: "I need support for these browsers" and it will transform your javascript so it will work on the list you provide.
+Knowing what browser supports what javascript feature is essential in transforming your code. Here is where `preset-env` comes in. It handles what transforms should be applied, based on your own input. You tell Babel: "I need support for these browsers" and it will transform your javascript so it will work on the list you provide.
 #### @babel/polyfill
 Sometimes the browsers you want to support need a little extra help for certain features. `@babel/polyfill` will provide polyfills for those featured, based on what browsers you wish to support.
 #### babel-loader
 Since we will be using Webpack, this package allows us to transpile our code using Babel and Webpack.
 
-*Do note that the packages all share the same namespace. Babel 7 moved to a monorepo structure, meaning that all packages share the same [repository](https://github.com/babel/babel). The packages used to have their own repository, so if you're installing them, make sure you install the right version.*
+*Do note that the packages all share the same namespace. Babel 7 moved to a monorepo structure, meaning that all packages share the same [repository](https://github.com/babel/babel). The packages used to have their own repository, so if you are installing them, make sure you install the right version.*
 
 
 ### .babelrc
-Next up, create a `.babelrc`-file in the root of your project. Babel will look for this file as a source for your configuration. There are a lot of options you can set there, but for now, we'll go with these:
+Next up, create a `.babelrc`-file in the root of your project. Babel will look for this file as a source for your configuration. There are a lot of options you can set there, but for now, we will go with these:
 ```bash
 {
 	"presets": [
@@ -179,7 +179,7 @@ This will tell Webpack to use the `babel-loader`-plugin when going through your 
 
 🎉🎉🎉 Refresh the page in IE11 and the console outputs `1 2 3`. Your javascript has been transpiled by Babel so it is now usable by older browsers.
 
-**Important:** The docs are a bit unclear on this one, but if you set your `@babel/preset-env`-options in the `.babelrc`-file you don't have to define them in your Webpack configuration. Otherwise, the Webpack config will overwrite the options in your `.babelrc`.
+**Important:** The docs are a bit unclear on this one, but if you set your `@babel/preset-env`-options in the `.babelrc`-file you don't have to define them in your Webpack configuration. If you do so, the Webpack configuration will overwrite the options in your `.babelrc`.
 
 #### Using Babel in your Webpack configuration
 You can also use new javascript features in your `webpack.config.js` thanks to the `@babel/register`-package we installed earlier. The only thing you have to do, is change your name from `webpack.config.js` to `webpack.config.babel.js`.
