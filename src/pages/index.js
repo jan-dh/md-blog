@@ -11,7 +11,7 @@ import Header from '../components/Header';
 
 class BlogIndex extends React.Component {
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges.slice(1,3)
+    const posts = this.props.data.allMarkdownRemark.edges
     return (
       <Layout location={this.props.location} data={this.props.data}>
         {posts.map(({ node }) => {
