@@ -1,16 +1,18 @@
 ---
 title: Working with Babel 7 and Webpack
-date: "2018-09-09"
+date: "2018-09-26"
 categories: ['javascript','webpack','babel']
-featuredImage: "./tables2.jpg"
-intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel is and what it does. We'll set up a basic workflow in combination with Webpack."
+featuredImage: "./babel2.png"
+intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel, what it does and how to use it"
 ---
 
+In this post we'll set up a project with Webpack and Babel 7. You'll learn the basics of Babel and some cool features of what it can do with your code.
+
 ## What is Babel?
-Babel is tool used in a lot of javascript projects out there, but it can be a little daunting to understand what exactly it is, what it does and how to use it. So, what is Babel? This is what the [website](https://babeljs.io/docs/en) says:
+This is what the [website](https://babeljs.io/docs/en) says:
 > Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
 
-Babel can do a lot things, but at it's core it enables you to write next-generation javascript and makes sure that old browsers or [node](https://nodejs.org/en/) can use that javascript.
+Babel is a JavaScript transpiler, something that compiles other code down to a standardized version of JavaScript. It can also be used to transpile Typescript or other languages to javascript. That way you can write next-generation javascript and old browsers or [node](https://nodejs.org/en/) can use your javascript.
 
 ## Why would I need it?
 If you have a look at the [ECMAScript 6 compatibility table](https://kangax.github.io/compat-table/es6/) you can see that writing code that works on all devices (or all devices you want to target) can be complicated. You would have to manually check for specific browser support if want to use some of javascript newest features. Babel does a lot of this heavy lifting for you. Let's see how it works.
@@ -100,6 +102,8 @@ How would you make sure that IE11 users can use your next-gen javascript code? T
 
 ## How to use Babel
 We will need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `.browserlistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
+
+*Note that you do really not need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserlistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, we will set the options for both tools in those files*
 
 ### Installing the dependencies
 The functionality of Babel is split up in different npm-packages, so you can pick the parts you need for your project. The configuration for Babel is defined in a `.babelrc`-file.
@@ -384,4 +388,7 @@ Using polyfills with `usage` option:
   es6.array.from { "android":"4.2", "chrome":"29", "edge":"14", "ie":"11", "ios":"7", "safari":"9.1" }
 ```
 
-With the `usage`-option enabled, Babel goes through your javascript and only includes the polyfills it needs to transform your code. This will result in a much smaller file-size (only 60kb).
+With the `usage`-option enabled, Babel goes through your javascript and only includes the polyfills it needs to transform your code. This will result in a much smaller file-size (only 60kb) 😮.
+
+## Summing things up
+Babel can do a lot of great things. You can integrate this basic setup in to your own projects and use it as a starting point to optimize your code further.
