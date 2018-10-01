@@ -3,7 +3,7 @@ title: Working with Babel 7 and Webpack
 date: "2018-09-25"
 categories: ['javascript','webpack','babel']
 featuredImage: "./babel2.png"
-intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel, what it does and how to use it."
+intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel is, what it does and how to use it."
 ---
 
 In this post we'll set up a project with Webpack and Babel 7. You'll learn the basics of Babel and some cool features of what it can do with your code.
