@@ -1,6 +1,7 @@
 ---
 title: Working with Babel 7 and Webpack
 date: "2018-09-25"
+updated: "2018-10-05"
 categories: ['javascript','webpack','babel']
 featuredImage: "./babel2.png"
 intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel is, what it does and how to use it."
@@ -94,16 +95,16 @@ We make an array, and loop over each item with the `Array.from`-method and log e
 SCRIPT438: Object doesn't support property or method 'from'
 ```
 
-Why is this? As you can see on [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Browser_compatibility), IE11 doesn't have support for arrow functions.
+Why is this? As you can see on [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Browser_compatibility), IE11 doesn't have support for the `Array.from()` method.
 
 ![Internet Explorer 11](./compat.png)
 
 How would you make sure that IE11 users can use your next-gen javascript code? That's right, that's where Babel comes in.
 
 ## How to use Babel
-We will need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `.browserlistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
+We will need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `.browserslistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
 
-*Note that you do really not need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserlistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, we will set the options for both tools in those files*
+*Note that you do really not need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserslistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, we will set the options for both tools in those files*
 
 ### Installing the dependencies
 The functionality of Babel is split up in different npm-packages, so you can pick the parts you need for your project. The configuration for Babel is defined in a `.babelrc`-file.
@@ -143,7 +144,7 @@ Next up, create a `.babelrc`-file in the root of your project. Babel will look f
 This will tell Babel to use the `preset-env`-package to look for what browsers to support.
 
 ### .browserslistrc
-The easiest way to tell Babel what browsers to use it to make a `.browserslistrc` file. Create a `.browserlistrc`-file. This file contains a list of the browsers you wish to support. [Browserlist](https://github.com/browserslist/browserslist) has a really nice [tool](http://browserl.ist/) that you can play around with to show you what browsers are selected based on the query you write. For example, this is the one I'm using:
+The easiest way to tell Babel what browsers to use it to make a `.browserslistrc` file. Create a `.browserslistrc`-file. This file contains a list of the browsers you wish to support. [Browserlist](https://github.com/browserslist/browserslist) has a really nice [tool](http://browserl.ist/) that you can play around with to show you what browsers are selected based on the query you write. For example, this is the one I'm using:
 ```bash
 # Browsers that we support
 > .05% in BE
@@ -260,7 +261,7 @@ The first line just states that we are using the `debug` option, which is true i
 }
 ```
 
-Next up, the list of all the browsers Babel is targeting. Remember, this is defined in the `.browserlistrc`-file.
+Next up, the list of all the browsers Babel is targeting. Remember, this is defined in the `.browserslistrc`-file.
 
 Then, we get a list of the plugins Babel is using. As you might notice, the list pretty long, while our code in `main.js` is only a couple of lines long 🤔. And if we inspect the `main.js` file in our `dist`-folder we don't see any of the polyfills included. Something's not working right.
 
