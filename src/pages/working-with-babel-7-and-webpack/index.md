@@ -67,7 +67,7 @@ The project setup should now look like this:
 ├── package.json
 ├── webpack.config.js
 ├── src
-   ├── main.js
+   ├── index.js
 ├── dist
 ```
 
