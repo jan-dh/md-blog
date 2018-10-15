@@ -39,7 +39,7 @@ Run `npm init` from the command-line in the root of your project, this will crea
 "dev":"webpack --watch",
 ```
 
-Next we'll need install Webpack. The following command will download Webpack and Webpack-cli and add it to your project's `devDependencies`:
+Next we'll need to install Webpack. The following command will download Webpack and Webpack-cli and add it to your project's `devDependencies`:
 ```javascript
 npm install webpack webpack-cli --save-dev
 ```
