@@ -2,7 +2,7 @@
 title: Language switcher for Craft 3
 date: "2018-07-25"
 updated: "2018-08-08"
-categories: ['craft','twig']
+categories: ['Craft CMS','Twig']
 featuredImage: "./language-switch.jpg"
 intro: "Craft 3 introduced some changes to locales and the multi-site setup. On top of that there are also a number of templating changes, so your old language switcher probably won't work anymore. So today we're building a brand new language switcher for Craft 3."
 ---

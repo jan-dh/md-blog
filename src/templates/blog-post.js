@@ -25,7 +25,7 @@ class BlogPostTemplate extends React.Component {
     const ogImage = `${siteUrl}/${post.frontmatter.featuredImage.publicURL.substring(1)}`
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     const formatedUpdate = new Date(post.frontmatter.updated).toLocaleDateString('en-US', dateOptions)
-    const updated = post.frontmatter.updated != undefined ? ` - Updated on ${formatedUpdate}` : ''
+    const updated = post.frontmatter.updated != '' ? ` - Updated on ${formatedUpdate}` : ''
     // Disqus
     const disqusShortname = "the-basement-1";
     const disqusConfig = {
@@ -49,7 +49,7 @@ class BlogPostTemplate extends React.Component {
           ]}
         />
         <div className="content mx-auto max-w-md mt-8">
-          <h1 className="my-0 lg:leading-loose text-4xl font-bold mb-2">{post.frontmatter.title}</h1>
+          <h1 className="my-0 lg:leading-small text-4xl font-bold mb-2">{post.frontmatter.title}</h1>
           <span className="text-sm text-grey-darker mb-4 inline-block">Published on <time>{post.frontmatter.date}</time>{updated} - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} read</span>
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
           <img src={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />

@@ -2811,6 +2811,10 @@ td {
   line-height: 1.25;
 }
 
+.leading-small {
+  line-height: 1.5;
+}
+
 .leading-normal {
   line-height: 1.7;
 }
@@ -6888,6 +6892,10 @@ td {
     line-height: 1.25;
   }
 
+  .sm\:leading-small {
+    line-height: 1.5;
+  }
+
   .sm\:leading-normal {
     line-height: 1.7;
   }
@@ -10941,6 +10949,10 @@ td {
 
   .md\:leading-tight {
     line-height: 1.25;
+  }
+
+  .md\:leading-small {
+    line-height: 1.5;
   }
 
   .md\:leading-normal {
@@ -14998,6 +15010,10 @@ td {
     line-height: 1.25;
   }
 
+  .lg\:leading-small {
+    line-height: 1.5;
+  }
+
   .lg\:leading-normal {
     line-height: 1.7;
   }
@@ -19051,6 +19067,10 @@ td {
 
   .xl\:leading-tight {
     line-height: 1.25;
+  }
+
+  .xl\:leading-small {
+    line-height: 1.5;
   }
 
   .xl\:leading-normal {
