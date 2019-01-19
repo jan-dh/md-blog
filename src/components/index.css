@@ -800,6 +800,10 @@ td {
   margin-top: 0;
 }
 
+.content a.anchor::before {
+  content: none;
+}
+
 .list-reset {
   list-style: none;
   padding: 0;
