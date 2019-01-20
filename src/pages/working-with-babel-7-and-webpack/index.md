@@ -35,7 +35,7 @@ To show the magic of Babel, we'll set up a small project where we can play aroun
 ```
 
 Run `npm init` from the command-line in the root of your project, this will create a `package.json`, and the following script to the scripts list:
-```javasript
+```json
 "dev":"webpack --watch",
 ```
 
@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-We're saying here in our config file: look for an entry point `./src/index.js` and output it in the `dist` folder. Make a `src` folder and a `dist` folder. So go ahead and make a `src`-folder and a `dist`-folder. Inside the `src`-folder create a javascript file called `main.js`. In our HTML we included the link to the built file (`/dist/main.js`).
+We're saying here in our config file: look for an entry point `./src/index.js` and output it in the `dist` folder. So go ahead and make a `src`-folder and a `dist`-folder. Inside the `src`-folder create a javascript file called `main.js`. In our HTML we included the link to the built file (`/dist/main.js`).
 
 The project setup should now look like this:
 ```bash
@@ -75,7 +75,7 @@ To test if our Webpack is working, we will add some logging to our `main.js`:
 ```javascript
 console.log('Hello world');
 ```
-When you run `npm run dev` (the script you added to your `package.json`), Webpack creates the built files within the `dist`-folder. If you point our local server environment (Mamp, Laravel Valet, ...) to the root of this project and open the website, you should see the console.log in your developer tools.
+When you run `npm run dev` (the script you added to your `package.json`), Webpack creates the built files within the `dist`-folder. If you point your local server environment (Mamp, Laravel Valet, ...) to the root of this project and open the website, you should see the console.log in your developer tools.
 
 Notice that the `npm run dev` command has the `--watch` flag in our `package.json`, so it will refresh on save. This way we can play around with our javascript, without having to manually save it each time. However, whenever we make changes to the `webpack.config.js`, you will need to re-run `npm run dev` to pick up changes in the config.
 
@@ -104,7 +104,7 @@ How would you make sure that IE11 users can use your next-gen javascript code? T
 ## How to use Babel
 We will need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `.browserslistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
 
-*Note that you do really not need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserslistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, we will set the options for both tools in those files*
+*Note that you do really not need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserslistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, for sake of clarity, in our test project we will set the options for both tools in those files.*
 
 ### Installing the dependencies
 The functionality of Babel is split up in different npm-packages, so you can pick the parts you need for your project. The configuration for Babel is defined in a `.babelrc`-file.
@@ -120,7 +120,7 @@ This package, as the name would suggest, is the core package. The package is res
 #### @babel/register
 This package will enable us to use new features of javascript in our Webpack config. So not only the code we are going to output runs through Babel, but our javascript config files for Webpack will run through it as well.
 #### @babel/preset-env
-Knowing what browser supports what javascript feature is essential in transforming your code. Here is where `preset-env` comes in. It handles what transforms should be applied, based on your own input. You tell Babel: "I need support for these browsers" and it will transform your javascript so it will work on the list you provide.
+Knowing what browser supports what javascript feature is essential in transforming your code. Here is where `preset-env` comes in. It handles what transforms should be applied, based on your own input. You tell Babel: "I need support for these browsers", and it will transform your javascript so it will work on the list you provide.
 #### @babel/polyfill
 Sometimes the browsers you want to support need a little extra help for certain features. `@babel/polyfill` will provide polyfills for those featured, based on what browsers you wish to support.
 #### babel-loader
@@ -274,7 +274,6 @@ Using polyfills: No polyfills were added, since the `useBuiltIns` option was not
 The easiest way to import the polyfills provided by Babel is by including it in your entry point in Webpack. Change your `webpack.config.js` to the following:
 
 ```javascript{5,6,7,8,9,10}
-import '@babel/polyfill';
 const path = require('path');
 
 module.exports = {
@@ -303,7 +302,7 @@ module.exports = {
 
 What we did here, was to create an entry point (`main`), with multiple entry-files. First we're including all the polyfills from `@babel/polyfill`, regardless wether we're going to need them. Next we're using our `index.js` as our entry point.
 
-This approach wouldn't be the best way to go about things:
+This approach works, but it wouldn't be the best way to go about things:
 
 1. **File-size**:  If you take a look at the file, size, you'll notice that our new `main.js` is almost 400kb big. That's a lot for a couple of lines of javascript. You will be pushing all of this to the client, while he doesn't need 99% of the code you are pushing in order for your javascript to work.
 
@@ -392,4 +391,4 @@ Using polyfills with `usage` option:
 With the `usage`-option enabled, Babel goes through your javascript and only includes the polyfills it needs to transform your code. This will result in a much smaller file-size (only 60kb) 😮.
 
 ## Summing things up
-Babel can do a lot of great things. You can integrate this basic setup in to your own projects and use it as a starting point to optimize your code further.
+Babel can do a lot of great things and this post just scratches the surface. You can integrate this basic setup in to your own projects and use it as a starting point to optimize your code further.
