@@ -90,6 +90,25 @@ The complete language switcher:
 </ul>
 ```
 
+## And there's more...
+As you might've noticed when trying this code at home, the `lang.language|upper` gives a short string for the language. When your site has the language set to `English (United States)`, you will only get back a string `en-US`. There is however a way to get the original name of the language:
+
+```twig
+{% set locale = craft.app.i18n.getLocaleById(lang.language) %}
+<a href="{{url}}">{{ locale.displayName }}</a>
+```
+
+To be able to access the name, you have to pass the string that `lang.language` returns through the internationalization service (i18n). What this will return is the language and the location it belongs to.
+
+`en-US` will return `English (united states)`. While this is a little better, it's maybe a little bit too much. If you want to return only the language you can do this:
+
+```twig
+{% set locale = craft.app.i18n.getLocaleById(lang.language|slice(0,2)) %}
+```
+
+You slice the string `en-US` to `en`. By passing in only the short string instead of `en-US` you will get back the language without the location, in this case: `English`.
+
+
 ## Flexibility
 
 The reason why I like this approach is because it provides a lot of flexibility. If you have some custom routes you want to check you could easily add them to the tests you perform to match an entry or category in another language. You could also limit the language switcher to only include the sites in the current site group by setting the group first, based on the `currentSite.groupId` - and then get all the sites from within that group using `group.getSites()`.
