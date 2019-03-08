@@ -52,7 +52,7 @@ class BlogPostTemplate extends React.Component {
           <h1 className="my-0 lg:leading-small text-4xl font-bold mb-2">{post.frontmatter.title}</h1>
           <span className="text-sm text-grey-darker mb-4 inline-block">Published on <time>{post.frontmatter.date}</time>{updated} - {post.timeToRead} minute{post.timeToRead == 1 ? '' :'s'} read</span>
           <p className="intro mt-0 text-xl">{post.frontmatter.intro}</p>
-          <img src={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title} />
+          <img src={post.frontmatter.featuredImage.childImageSharp.sizes.src} alt={post.frontmatter.title}  className="mb-4"/>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <div className="mt-8">
            <p>

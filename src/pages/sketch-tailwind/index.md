@@ -3,14 +3,14 @@ title: Sketch Tailwind
 date: "2019-03-10"
 updated: ""
 categories: ['Sketch','Tailwind CSS','Css']
-featuredImage: "./sketch-tailwind.png"
+featuredImage: "./sketch.jpg"
 intro: "A plugin that tries to bridge the gap between designs and code. Sketch Tailwind lets you export aspects of a design made in Sketch to javascript files that are ready to use with Tailwind CSS."
 ---
 
-For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and it has known a huge increase in popularity. He goes in depth in to the philopshy behind the framework in a very interesting blogpost: [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/). If you haven't read that post, make sure the give it a read, it's worth it.
+For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and it has known a huge increase in popularity. Adam goes in depth in to the philopshy behind the framework in a very interesting blogpost: [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/). If you haven't read that post, make sure to give it a read.
 
 ## Designing for code
-Tailwind at it's core works with a `tailwind.js` configuration file. In this file you define the properties you will be using in your project:
+Tailwind at it's core works with a `tailwind.js` configuration file. In this file you define the properties of your design you will be using in your project:
 
 - colors
 - font-families
@@ -31,7 +31,7 @@ let colors = {
   'grey': '#b8c2cc',
 ```
 
-As a developer it's very handy to know most of these properties when you begin to set up a new project. They form the base of your styling, so once they are all defined, you can dive straight into the code without having to think too much about them. It increases productivity a lot.
+As a developer it's very handy to know most of these properties at the start of a new project. Once the most important properties of your design are defined, you can dive straight into the code without having to think too much about them. It increases productivity a lot.
 
 ### Creating your theme
 As a designer working in Sketch, you'll work with Layer Styles and Text Styles. Those are the base styles you define and reuse all in your design. Basically, what we would need in our `tailwind.js`. 🤔
