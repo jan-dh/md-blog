@@ -9,6 +9,11 @@ intro: "A plugin that tries to bridge the gap between designs and code. Sketch T
 
 For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and it has known a huge increase in popularity. Adam goes in depth in to the philopshy behind the framework in a very interesting blogpost: [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/). If you haven't read that post, make sure to give it a read.
 
+[Sketch](https://www.sketchapp.com/) on the other hand is a design tool, available on Mac, that has become quiet popular for designing website or web applications. It's vector based, very intuitive to use and it's fast. 
+
+## Mind the gap
+Working with both of these tools, I was looking for a way to bridge the gap between them. What does that mean? I didn't want to manually copy data from Sketch files to my `tailwind.js` configuration file. Working on big projects, there are always colors you forget to take copy or font sizes you overlook. By automating the export to Tailwind CSS my design and my css stays in sync and chances of overlooking certain for example colors are greatly reduced.
+
 ## Designing for code
 Tailwind at it's core works with a `tailwind.js` configuration file. In this file you define the properties of your design you will be using in your project:
 
