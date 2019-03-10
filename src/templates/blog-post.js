@@ -25,7 +25,7 @@ class BlogPostTemplate extends React.Component {
     const ogImage = `${siteUrl}/${post.frontmatter.featuredImage.publicURL.substring(1)}`
     const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     const formatedUpdate = new Date(post.frontmatter.updated).toLocaleDateString('en-US', dateOptions)
-    const updated = post.frontmatter.updated.length > 0 ? ` - Updated on ${formatedUpdate}` : ''
+    const updated = post.frontmatter.updated !== null ? ` - Updated on ${formatedUpdate}` : ''
     // Disqus
     const disqusShortname = "the-basement-1";
     const disqusConfig = {
