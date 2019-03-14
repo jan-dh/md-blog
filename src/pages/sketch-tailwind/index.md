@@ -54,7 +54,7 @@ For the colors the plugin will look at all your Layer Styles and takes each colo
 ### Font-families
 The plugin will pick up all font-families used in your Text Layers.
 
-### Text-size
+### Text-sizes
 All the different font-sizes you use in your Text Styles will be picked up by the plugin. You can pick a base font-size and the rest of the font-size names are calculated accordingly. The logic used:
 
 ```javascript
