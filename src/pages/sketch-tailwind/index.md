@@ -7,12 +7,12 @@ featuredImage: "./sketch.jpg"
 intro: "A plugin that tries to bridge the gap between designs and code. Sketch Tailwind lets you export aspects of a design made in Sketch to javascript files that are ready to use with Tailwind CSS."
 ---
 
-For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and it has known a huge increase in popularity. Adam goes in depth in to the philopshy behind the framework in a very interesting blogpost: [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/). If you haven't read that post, make sure to give it a read.
+For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and since it's original release it's become my go-to framework for utility-first css. Adam goes in depth in to the philopshy behind the framework in a very interesting blogpost: [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/). If you haven't read that post, make sure to give it a read.
 
 [Sketch](https://www.sketchapp.com/) on the other hand is a design tool, available on Mac, that has become quiet popular for designing website or web applications. It's vector based, very intuitive to use and it's fast. 
 
 ## Mind the gap
-Working with both of these tools, I was looking for a way to bridge the gap between them. What does that mean? I didn't want to manually copy data from Sketch files to my `tailwind.js` configuration file. Working on big projects, there are always colors you forget to take copy or font sizes you overlook. By automating the export to Tailwind CSS my design and my css stays in sync and chances of overlooking certain for example colors are greatly reduced.
+Working with both of these tools, I was looking for a way to bridge the gap between them. What does that mean? I didn't want to manually copy data from Sketch files to my Tailwind configuration file. Working on big projects, there are always colors you forget to take copy or font sizes you overlook. By automating the export to Tailwind CSS my design and my css stays in sync and chances of overlooking certain for example colors are greatly reduced.
 
 ## Designing for code
 Tailwind at it's core works with a `tailwind.js` configuration file. In this file you define the properties of your design you will be using in your project:
@@ -39,17 +39,40 @@ let colors = {
 As a developer it's very handy to know most of these properties at the start of a new project. Once the most important properties of your design are defined, you can dive straight into the code without having to think too much about them. It increases productivity a lot.
 
 ### Creating your theme
-As a designer working in Sketch, you'll work with Layer Styles and Text Styles. Those are the base styles you define and reuse all in your design. Basically, what we would need in our `tailwind.js`. 🤔
+As a designer working in Sketch, you'll work with Layer Styles and Text Styles. These are reusable styles, used for colors and text (font-family, font-weight, font-sizes,...). Basically, the things we would be defining in our Tailwind configuration file. 
 
 ![Layer styles](./layer-styles.png)
 
 The plugin let's you export properties from your design so you can use them in your Tailwind configuration. At this point the plugin picks up:
 - colors
 - font-families
-- text-sizes. 
+- text-sizes
 
+### Colors
+For the colors the plugin will look at all your Layer Styles and takes each color, using the last part of it's name (behind the last /). This way you can still organize your colors in Sketch using subfolders, while only exporting the actual color name. Within the plugin you can add some extra colors if you need to. Might add a color-picker if people would like to see that.
 
+### Font-families
+The plugin will pick up all font-families used in your Text Layers.
 
+### Text-size
+All the different font-sizes you use in your Text Styles will be picked up by the plugin. You can pick a base font-size and the rest of the font-sizes names are calculated accordingly. The logic used:
+
+```javascript
+...
+'3xs'
+'2xs'
+'xs'
+'sm'
+'base'
+'lg'
+'xl'
+'2xl'
+'3xl'
+...
+```
+The font-sizes the plugin spits out will also be converted into a rem based scale (with 16 as your base).
+
+![Typography](./typography.png)
 
 ## Coding with design
 The exported file will look something like this:
@@ -78,7 +101,7 @@ const theme = {
 export default theme;
 ```
 
-Notice the export at the bottom. This let's us import the theme file in to the `tailwind.js`  configuration file, like so:
+Notice the `export default theme;` at the bottom. This let's us import the theme file in to the `tailwind.js`  configuration file, like so:
 
 ```javascript
 import theme from './theme';
