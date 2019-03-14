@@ -7,12 +7,12 @@ featuredImage: "./sketch.jpg"
 intro: "A plugin that tries to bridge the gap between designs and code. Sketch Tailwind lets you export aspects of a design made in Sketch to javascript files that are ready to use with Tailwind CSS."
 ---
 
-For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and since it's original release it's become my go-to framework for utility-first css. Adam goes in depth in to the philopshy behind the framework in a very interesting blogpost: [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/). If you haven't read that post, make sure to give it a read.
+For those who don't know [Tailwind CSS](https://tailwindcss.com), it is a utility-first CSS framework for rapidly building custom user interfaces. It's developed and maintained by [Adam Wathan](https://twitter.com/adamwathan) and since its original release it has bc my go-to framework for utility-first css. Adam goes in depth in to the philopshy behind the framework in a very interesting [blogpost](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/): CSS Utility Classes and "Separation of Concerns". If you haven't read that post, make sure to give it a read.
 
 [Sketch](https://www.sketchapp.com/) on the other hand is a design tool, available on Mac, that has become quiet popular for designing website or web applications. It's vector based, very intuitive to use and it's fast. 
 
 ## Mind the gap
-Working with both of these tools, I was looking for a way to bridge the gap between them. What does that mean? I didn't want to manually copy data from Sketch files to my Tailwind configuration file. Working on big projects, there are always colors you forget to take copy or font sizes you overlook. By automating the export to Tailwind CSS my design and my css stays in sync and chances of overlooking certain for example colors are greatly reduced.
+Working with both of these tools, I was looking for a way to bridge the gap between them. What does that mean? I didn't want to manually copy data from Sketch files to my Tailwind configuration file. Working on big projects, there are always colors you forget to copy or font sizes you overlook. By automating the export to Tailwind CSS my design and my css stays in sync and chances of overlooking certainm colors for example are greatly reduced.
 
 ## Designing for code
 Tailwind at it's core works with a `tailwind.js` configuration file. In this file you define the properties of your design you will be using in your project:
@@ -43,7 +43,7 @@ As a designer working in Sketch, you'll work with Layer Styles and Text Styles. 
 
 ![Layer styles](./layer-styles.png)
 
-The plugin let's you export properties from your design so you can use them in your Tailwind configuration. At this point the plugin picks up:
+The plugin lets you export properties from your design so you can use them in your Tailwind configuration. At this point the plugin picks up:
 - colors
 - font-families
 - text-sizes
@@ -55,7 +55,7 @@ For the colors the plugin will look at all your Layer Styles and takes each colo
 The plugin will pick up all font-families used in your Text Layers.
 
 ### Text-size
-All the different font-sizes you use in your Text Styles will be picked up by the plugin. You can pick a base font-size and the rest of the font-sizes names are calculated accordingly. The logic used:
+All the different font-sizes you use in your Text Styles will be picked up by the plugin. You can pick a base font-size and the rest of the font-size names are calculated accordingly. The logic used:
 
 ```javascript
 ...
@@ -118,7 +118,7 @@ let colors = {
   'grey': '#b8c2cc',
   ...theme.colors,
 ```
-By adding the colors at the end, the theme will overwrite values that were are already present before the spread operator. This way you make sure you're using the colors you defined, not the defaults already present.
+By adding the colors at the end, the theme will overwrite values that are already present before the spread operator. This way you make sure you're using the colors you defined, not the defaults already present.
 
 ## Try it!
 
