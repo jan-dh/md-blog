@@ -77,7 +77,7 @@ console.log('Hello world');
 ```
 When you run `npm run dev` (the script you added to your `package.json`), Webpack creates the built files within the `dist`-folder. If you point your local server environment (Mamp, Laravel Valet, ...) to the root of this project and open the website, you should see the console.log in your developer tools.
 
-Notice that the `npm run dev` command has the `--watch` flag in our `package.json`, so it will refresh on save. This way we can play around with our javascript, without having to manually refresh the page each time. However, whenever we make changes to the `webpack.config.js`, you will need to re-run `npm run dev` to pick up changes in the config.
+Notice that the `npm run dev` command has the `--watch` flag in our `package.json`, so it will refresh on save. This way we can play around with our javascript, without having to manually refresh the page each time. However, if you make changes to the `webpack.config.js`, you will need to re-run `npm run dev` to pick up changes in the config.
 
 ### Using new features of javascript
 Everything works fine so far, but what happens if we try to use some next-generation javascript in our code? Change the code inside `main.js` to this:
