@@ -59,7 +59,7 @@ module.exports = {
 };
 ```
 
-We're saying here in our config file: look for an entry point `./src/index.js` and output it in the `dist` folder. So go ahead and make a `src`-folder and a `dist`-folder. Inside the `src`-folder create a javascript file called `main.js`. In our HTML we included the link to the built file (`/dist/main.js`).
+What we are saying here in our config file: look for an entry point `./src/index.js` and output it in the `dist` folder. So go ahead and make a `src`-folder and a `dist`-folder. Inside the `src`-folder create a javascript file called `main.js`. In our HTML we included the link to the built file (`/dist/main.js`).
 
 The project setup should now look like this:
 ```bash
@@ -71,13 +71,13 @@ The project setup should now look like this:
 ├── dist
 ```
 
-To test if our Webpack is working, we will add some logging to our `main.js`:
+To test if our Webpack is working, we will add a `console.log` to our `main.js`:
 ```javascript
 console.log('Hello world');
 ```
 When you run `npm run dev` (the script you added to your `package.json`), Webpack creates the built files within the `dist`-folder. If you point your local server environment (Mamp, Laravel Valet, ...) to the root of this project and open the website, you should see the console.log in your developer tools.
 
-Notice that the `npm run dev` command has the `--watch` flag in our `package.json`, so it will refresh on save. This way we can play around with our javascript, without having to manually save it each time. However, whenever we make changes to the `webpack.config.js`, you will need to re-run `npm run dev` to pick up changes in the config.
+Notice that the `npm run dev` command has the `--watch` flag in our `package.json`, so it will refresh on save. This way we can play around with our javascript, without having to manually refresh the page each time. However, whenever we make changes to the `webpack.config.js`, you will need to re-run `npm run dev` to pick up changes in the config.
 
 ### Using new features of javascript
 Everything works fine so far, but what happens if we try to use some next-generation javascript in our code? Change the code inside `main.js` to this:
