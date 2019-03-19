@@ -89,13 +89,13 @@ Array.from(array).forEach(($item) => {
  console.log($item);
 })
 ```
-We make an array, and loop over each item with the `Array.from`-method and log each item. When you check the console on a modern browser, you will see the output (`1 2 3`), but what happens when you open the console in IE11?
+We make an array, and loop over each item with the `Array.from` method and log each item. When you check the console on a modern browser, you will see the output (`1 2 3`), but what happens when you open the console in IE11?
 
 ```javascript
-SCRIPT438: Object doesn't support property or method 'from'
+Object doesn't support property or method 'from'
 ```
 
-Why is this? As you can see on [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Browser_compatibility), IE11 doesn't have support for the `Array.from()` method.
+Why is this? As you can see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Browser_compatibility), IE11 doesn't have support for the `Array.from()` method.
 
 ![Internet Explorer 11](./compat.png)
 
@@ -104,7 +104,7 @@ How would you make sure that IE11 users can use your next-gen javascript code? T
 ## How to use Babel
 We will need a couple of different things to set up Babel:  a couple of `npm-packages`, a `.babelrc`-file and a `.browserslistrc`-file, both in the root of your project, and some tweaks to our `webpack.config.js`.
 
-*Note that you do really not need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserslistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, for sake of clarity, in our test project we will set the options for both tools in those files.*
+*Note that you do not really need a `.babelrc`-file. Your Babel configuration can be set in a number of different places, one of them is the `.babelrc`-file. You can read the options on what to choose for what occasion [here](https://babeljs.io/docs/en/next/configuration). The same goes for the `.browserslistrc`-file. A list of examples for browserlist integrations with other tools can be found over [here](https://github.com/browserslist/browserslist-example). That being said, for sake of clarity, in our test project we will set the options for both tools in those files.*
 
 ### Installing the dependencies
 The functionality of Babel is split up in different npm-packages, so you can pick the parts you need for your project. The configuration for Babel is defined in a `.babelrc`-file.
@@ -300,9 +300,9 @@ module.exports = {
 };
 ```
 
-What we did here, was to create an entry point (`main`), with multiple entry-files. First we're including all the polyfills from `@babel/polyfill`, regardless wether we're going to need them. Next we're using our `index.js` as our entry point.
+What we did here, we created an entry point (`main`), with multiple entry-files. First we're including all the polyfills from `@babel/polyfill`, regardless wether we're going to need them. Next we're using our `index.js` as our entry point.
 
-This approach works, but it wouldn't be the best way to go about things:
+Restart the webpack task, and have a look: This approach works! ...but it wouldn't be the best way to go about things:
 
 1. **File-size**:  If you take a look at the file, size, you'll notice that our new `main.js` is almost 400kb big. That's a lot for a couple of lines of javascript. You will be pushing all of this to the client, while he doesn't need 99% of the code you are pushing in order for your javascript to work.
 
