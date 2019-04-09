@@ -19,13 +19,13 @@ We start off by getting an array of all the languages:
 {% set langSwitcher = craft.app.sites.getAllSites() %}
 ```
 
-Next we’ll get the baseUrl of each language. Notice the use of the new function `alias()` - this will replace any use of the `@web` alias in the baseUrl with its value.
+Next we’ll get the baseUrl of each language. We'll use `getBaseUrl()` function for this. Don't use the `@web` alias in the baseUrl. It has potential [security risks](https://github.com/craftcms/cms/issues/3559).
 
 ```twig
 <ul>
 	{% for lang in langSwitcher %}
 		{# Get base URL #}
-		{% set url = alias(lang.baseUrl) %}
+		{% set url = lang.getBaseUrl() %}
 		<li>
 			<a href="{{url}}" {% if lang.id == currentSite.id %}class="active"{% endif %}>{{lang.language|upper}}</a>
 		</li>
