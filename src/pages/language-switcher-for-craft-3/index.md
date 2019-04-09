@@ -67,7 +67,7 @@ The complete language switcher:
 <ul>
 	{% for lang in langSwitcher %}
 		{# Set homepage as default #}
-		{% set url = alias(lang.baseUrl) %}
+		{% set url = lang.getBaseUrl() %}
 		{# Entry is defined #}
 		{% if entry is defined %}
 			{# Check if that entry exists in other locale #}
