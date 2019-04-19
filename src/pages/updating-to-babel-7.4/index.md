@@ -67,6 +67,8 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 ```
 
+The `core-js/stable` point to the stable version of your currently installed `core-js`, be it version 2 or version 3. `regenerator-runtime/runtime` is for when you are transforming [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*). 
+
 
 Now you should be able to use Babel as you did before.
 
