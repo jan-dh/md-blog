@@ -52,6 +52,22 @@ Since `core-js` is now being used directly for the polyfills, the `@babel/polyfi
 npm uninstall @babel/polyfill
 ```
 
+### Manually import core-js
+
+If you were importing `@babel/polyfill` directly in to your files, you should update them with the `core-js` packages. Change
+
+```javascript
+import "@babel/polyfill";
+```
+
+to
+
+```javascript
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+```
+
+
 Now you should be able to use Babel as you did before.
 
 ## Dive deeper
