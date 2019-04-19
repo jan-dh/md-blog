@@ -7,7 +7,7 @@ featuredImage: "./babel2.png"
 intro: "With the recent release of Babel 7, it's the perfect time to really get to know it. A post on what Babel is, what it does and how to use it."
 ---
 
-*__Important__: If you are using Babel 7.4, make sure to check out the post [Updating to Babel 7.4](https://www.thebasement.be/updating-to-babel-7.4/) on some of the breaking changes*
+*__Important__: If you are using Babel 7.4, make sure to check out the post [Updating to Babel 7.4](https://www.thebasement.be/updating-to-babel-7.4/) on some of the breaking changes.*
 
 In this post we'll set up a project with Webpack and Babel 7. You'll learn the basics of Babel and some cool features of what it can do with your code.
 
