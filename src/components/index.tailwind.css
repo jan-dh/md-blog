@@ -70,13 +70,15 @@ a{
 
 /* Content Block styling */
 .highlight,
-.content a{
+.content a,
+p > a{
   color: inherit;
   position: relative;
   z-index: 1;
 }
 .highlight:before,
-.content a:before{
+.content a:before,
+p > a:before{
   content: '';
   transition: .15s ease-in;
   position: absolute;
@@ -87,6 +89,7 @@ a{
   background-color: #ffcf038c;
   left: 4px;
 }
+
 
 .content a:hover:before{
   bottom:1px;

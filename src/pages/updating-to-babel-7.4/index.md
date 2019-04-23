@@ -19,14 +19,14 @@ Make sure they are all at least version 7.4.
 
 ## Core-js 3
 
-As we learned in a previous article `@babel/preset-env` takes care of what transforms should be applied and `@babel/polyfill` provides polyfills to make sure all browsers you defined in your browserlist are supported.
+As we learned in the [Working with babel 7 and Wepack - post](https://www.thebasement.be/working-with-babel-7-and-webpack/), `@babel/preset-env` takes care of what transforms should be applied and `@babel/polyfill` provides polyfills to make sure all browsers you defined in your browserlist are supported.
 
 All those polyfills that were provided in `@babel/polyfill` were provided by a package called `core-js`, maintained by [Denis Pushkarev](https://github.com/zloirock). 
 
 Babel 7.4 uses the newest version of this package, `core-js@3`, which is incompatible with the previous version (`core-js@2`), so we will have to make some changes to our config.
 
 ### Updating your config
-So in able to get your setup working with Babel 7.4 there are some things you have to adjust
+So in order to get your setup working with Babel 7.4 there are some things you have to adjust
 
 -  First of all, install the latest version of `core-js`
 
@@ -54,7 +54,7 @@ npm uninstall @babel/polyfill
 
 ### Manually import core-js
 
-If you were importing `@babel/polyfill` directly in to your files, you should update them with the `core-js` packages. Change
+If you were importing `@babel/polyfill` directly in to your files, you should update them with the `core-js` package. Change
 
 ```javascript
 import "@babel/polyfill";
@@ -67,7 +67,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 ```
 
-The `core-js/stable` point to the stable version of your currently installed `core-js`, be it version 2 or version 3. `regenerator-runtime/runtime` is for when you are transforming [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*). 
+The `core-js/stable` point to the stable version of your currently installed `core-js`-package, be it version 2 or version 3. `regenerator-runtime/runtime` is for when you are transforming [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*). 
 
 
 Now you should be able to use Babel as you did before.
