@@ -394,3 +394,6 @@ With the `usage`-option enabled, Babel goes through your javascript and only inc
 
 ## Summing things up
 Babel can do a lot of great things and this post just scratches the surface. You can integrate this basic setup in to your own projects and use it as a starting point to optimize your code further.
+
+### Updating to 7.4
+If you are using Babel 7.4, make sure to check out my post on [Updating to Babel 7.4](https://www.thebasement.be/updating-to-babel-7.4/).
