@@ -40,7 +40,7 @@ Make sure you explicitly set the version of `core-js`.
 ```javascript
 presets: [
    ["@babel/preset-env", {
-       useBuiltIns: "usage"
+       useBuiltIns: "usage",
        corejs: 3,
    }]
 ]
