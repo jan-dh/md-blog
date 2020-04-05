@@ -2,7 +2,7 @@
 title: Language switcher for Craft 3
 date: "2018-07-25"
 updated: "2019-04-09"
-categories: ['Craft CMS','Twig']
+categories: ["Craft CMS", "Twig"]
 featuredImage: "./language-switch.jpg"
 intro: "Craft 3 introduced some changes to locales and the multi-site setup. On top of that there are also a number of templating changes, so your old language switcher probably won't work anymore. So today we're building a brand new language switcher for Craft 3."
 ---
@@ -14,6 +14,7 @@ As from Craft 3, locales are replaced by sites. Each site can have it's own lang
 The basic approach for this switcher will be: check if the entry or the category exists in the other language; if not, set the toggle url to the homepage of that other language.
 
 We start off by getting an array of all the languages:
+
 ```twig
 {# Create an array with the homepages #}
 {% set langSwitcher = craft.app.sites.getAllSites() %}
@@ -91,6 +92,7 @@ The complete language switcher:
 ```
 
 ## And there's more...
+
 As you might've noticed when trying this code at home, the `lang.language|upper` gives a short string for the language. When your site has the language set to `English (United States)`, you will only get back a string `en-US`. There is however a way to get the original name of the language:
 
 ```twig
@@ -107,7 +109,6 @@ To be able to access the name, you have to pass the string that `lang.language` 
 ```
 
 You slice the string `en-US` to `en`. By passing in only the short string instead of `en-US` you will get back the language without the location, in this case: `English`.
-
 
 ## Flexibility
 
@@ -130,12 +131,12 @@ If you are using Craft Commerce you could check to see if you are on a product p
 ```twig
 {% if product is defined %}
 	{# Check if that product exists in other locale #}
-	{% set otherLocaleProduct = craft.entries.siteId(lang.id).id(product.id).one() %}
+	{% set otherLocaleProduct = craft.products.siteId(lang.id).id(product.id).one() %}
 	{% if otherLocaleProduct %}
 		{% set url = otherLocaleProduct.url %}
 	{% endif %}
 ```
+
 <br>
 
-*Do note that there's a bugfix on the way for the `|without` filter. Currently this will give you all the sites, even the one passed within the filter. - This was fixed in release 3.0.17*
-
+_Do note that there's a bugfix on the way for the `|without` filter. Currently this will give you all the sites, even the one passed within the filter. - This was fixed in release 3.0.17_
